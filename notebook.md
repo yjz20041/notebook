@@ -10,6 +10,8 @@ autocomplete="false",可以加在form上或者单独的input上。但在username
 #### 如果存在timer，则io poll的timeout为soonest timer，阻塞；否则，io poll的timeout为0，即：如果queue为空，则立即返回并调到check阶段。
 #### nextTick：会在各个阶段完成进入下一个阶段前立即执行。
 #### setImmediate：callback会存入 the fifo of the check phase
+
+```c
 //deps/uv/src/unix/core.c
 int uv_run(uv_loop_t *loop, uv_run_mode mode) {
 	int timeout;
@@ -64,3 +66,4 @@ int uv_run(uv_loop_t *loop, uv_run_mode mode) {
 	//返回r的值
 	return r;
 }
+```
