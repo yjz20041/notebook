@@ -1,11 +1,11 @@
-### 取消浏览器保存表单信息 
+### 1.取消浏览器保存表单信息 
 
 autocomplete="false",可以加在form上或者单独的input上。但在username和password组合的时候，浏览器会忽略autocomplete。需要用一个hidden password input 辅助：
 ```html
 <input type="password" name="a" tabindex="9999" style="display: block; height: 0px; border: 1px solid transparent; margin-top: -2px;" autocomplete="off" />
 <input type="password" name="a" />
 ```
-### event loop uv_run源码
+### 2.event loop uv_run源码
 #### 一个loop的顺序：timer -> io callback  -> idle  ->  prepare  -> io poll  -> check  -> timer，无限循环
 #### 如果存在timer，则io poll的timeout为soonest timer，阻塞；否则，io poll的timeout为0，即：如果queue为空，则立即返回并调到check阶段。
 #### nextTick：会在各个阶段完成进入下一个阶段前立即执行。
