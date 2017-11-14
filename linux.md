@@ -17,3 +17,13 @@
 4.~/.bashrc:该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该文件被读取.
 
 5.~/.bash_logout:当每次退出系统(退出bash shell)时,执行该文件.
+
+### zshell的安装过程
+
+1. brew install zshell
+
+2.在/etc/shells末尾添加/usr/local/bin/zsh
+
+3.执行chsh -s /usr/local/bin/zsh
+
+4.将~/.bash_prorile或者~/.profile等配置拷贝到~/.zshrc中
