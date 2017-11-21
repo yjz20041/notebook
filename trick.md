@@ -23,3 +23,5 @@ alert(node);
 alert(root.branch.node); 
 
 with 语句内部的节点父节点修改后, 不会同步到节点本身. 也就是说, 不能保证内外数值的一致性. 这是可能成为项目里面隐藏性很高的 bug. 
+
+#### 3.{} instanceof Object,没有prototype属性，但是有__proto__属性，或者通过Object.getPrototypeOf获取
