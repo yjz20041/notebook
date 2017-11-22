@@ -32,7 +32,9 @@ with 语句内部的节点父节点修改后, 不会同步到节点本身. 也�
 
 1.每个函数默认都会有一个属性叫prototype, 每一个通过函数和new操作符生成的对象都具有一个属性__proto__, 这个属性保存了创建它的构造函数的prototype属性的引用
 
-2.所有函数包括Object和Function,Array,String,Boolean,Number，都是以Function.prototype为原型创建的特殊对象（因为拥有函数的性质，并且拥有prototype属性），它们的__proto__都指向Function.prototype。比如定义函数 function a () {console.log('a')} 等同于 var a = new Function('console.log("a")')。new Function：生成的对象拥有函数的特性，并且会再原型链中创建一个以根链节点Object.prototype为父链的instance作为prototype属性值（Object则指向Object.prototype）。
+2.所有函数包括Object和Function,Array,String,Boolean,Number，都是以Function.prototype为原型创建的特殊对象（因为拥有函数的性质，并且拥有prototype属性），它们的__proto__都指向Function.prototype。
+
+比如定义函数 function a () {console.log('a')} 等同于 var a = new Function('console.log("a")')。new Function：生成的对象拥有函数的特性，并且会再原型链中创建一个以根链节点Object.prototype为父链的instance作为prototype属性值（Object则指向Object.prototype）。
 
 3. new f()原理
 
@@ -47,5 +49,5 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 
 由于Function.__proto__.__proto__为Object.prototype，所以Function instanceof Object
 
-5.总的来说，Object/Function及对应Object.prototype和Function.prototype这4个instances js executer事先会创建好。Object.prototype是原型链上的根节点，Function.prototype定义了一些内部实现，具体未知（[native code]）,其父链指向Object.prototype
+5.总的来说，Object/Function及对应Object.prototype和Function.prototype这4个instances js executer事先会创建好。Object.prototype是原型链上的根节点，Function.prototype是一个函数，i.e.原型链的节点可以是一个函数，其定义了一些内部实现，具体未知（[native code]）,其父链指向Object.prototype
 
