@@ -53,5 +53,5 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 
 #### 5.switch... case
 
-当忘记break，则会一直向下执行，不论接下来的case是否匹配
+当case缺少break，则会一直向下执行，不论接下来的case是否匹配，知道swtich结束
 
