@@ -49,5 +49,5 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 
 由于Function.__proto__.__proto__为Object.prototype，所以Function instanceof Object
 
-5.总的来说，Object/Function及对应Object.prototype和Function.prototype这4个instances js executer事先会创建好。Object.prototype是原型链上的根节点，Function.prototype是一个函数，i.e.原型链的节点可以是一个函数，其定义了一些内部实现，具体未知（[native code]）,其父链指向Object.prototype
+5.总的来说，Object/Function及对应Object.prototype和Function.prototype这4个instances js executer事先会创建好。Object.prototype是原型链上的根节点，Function.prototype是一个特殊的函数，不是Function的实例，其__proto__指向了Object.prototyepe,i.e.原型链的节点可以是一个函数，其定义了一些内部实现，具体未知（[native code]）,其父链指向Object.prototype
 
