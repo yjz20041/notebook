@@ -54,6 +54,8 @@
 7.*yield gen():
 ```js
 
+  7.1 通过 _context2.delegateYield(a(), "t0", 1)方法，gen会被代理给执行*yield gen()的generator。当
+
 ```
 
 8. sync await
