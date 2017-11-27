@@ -54,8 +54,24 @@
 7.*yield gen():
 ```js
 
-  7.1 通过 _context2.delegateYield(a(), "t0", 1)方法，gen会被代理给执行*yield gen()的generator。当
+  7.1 通过 _context2.delegateYield(a(), "t0", 1)方法，gen会被代理给执行*yield gen()的generator。当gen.done时，host.delegate
+  置位null
 
 ```
 
-8. sync await
+8. async await
+
+aync 函数会被转化为gennerator，await后的语句会被放进promise里
+```js
+  value = gen.next();//excution automatically
+  new Promise.resolve(value).then(function () {
+    gen.next();
+  }, function () {
+    gen.throw();
+  })
+```
+
+```js
+  
+
+```
