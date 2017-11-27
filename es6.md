@@ -29,10 +29,13 @@
   4.2 record = tryCatch(fn, context, arg)
   
   4.3 
+  ```js
   if record.type === 'normal', return {value, done} 
-  if record.type === 'throw',  dispatchExcuetion, 如果 exception被fcatch了，则context.type='next',否则context.type = 'throw'.
+  if record.type === 'throw',  dispatchExcuetion, 如果 exception被内部catch了，则context.type='next',继续调到catch语句执行。否则context.type = 'throw'，将exception抛到函数外，如果函数外没有捕获exception，则程序抛出异常并结束运行。
+  ```
+5.throw(arg):
 
-5.throw:
+  5.1
 
 6.return:
 
