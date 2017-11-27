@@ -35,10 +35,25 @@
   ```
 5.throw(arg):
 
-  5.1
+```js
+  5.1 如果gen函数还处于‘suspendedStart’,则gen直接向函数外抛出异常
+  
+  5.2 如果gen函数处于'suspendedYield',则dispatchExcuetion, 如果 exception被内部catch了，则context.type='next',继续调到catch语句执行。否则context.type = 'throw'，将exception抛到函数外，如果函数外没有捕获exception，则程序抛出异常并结束运行。
+  ```
 
-6.return:
+6.return(arg):
 
-7.*yield:
+```js
+  6.1 context.abrupt("return", context.arg);
+  
+  6.2 abrupt会执行try在prev之前，finally在prev之后的finally语句,如果finally里还有finally语句，这继续执行
+  
+  6.3
+```
 
-8.
+7.*yield gen():
+```js
+
+```
+
+8. sync await
