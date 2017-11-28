@@ -152,7 +152,15 @@ Reflect.ownKeys返回一个数组，包含对象自身的所有键名，不管�
 其次遍历所有字符串键，按照加入时间升序排列。
 最后遍历所有 Symbol 键，按照加入时间升序排列
 
-11.
+11.Object.getOwnPropertyDescriptors(): 返回指定对象所有自身属性（非继承属性）的描述对象
+
+12. Object.getPropertyOf 和Object.setPropertyOf分别用于读取和设置对象的__proto__
+
+13.super,指向对象的原型对象
+
+14.Object.keys,values,entries都不包括继承和symbol属性
+
+15.
 ```
 
 #### 3.class
