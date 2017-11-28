@@ -107,6 +107,8 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 ```css
   9.1 word-break:单词内换行，默认normal，非CJK只在单词链接处(空格)换行
   
-  9.2 word-wrap(overflow-wrap):
+  9.2 word-wrap(overflow-wrap):块内换行，默认normal，Lines may only break at normal word break points (such as a space between two words).
+  
+  9.3 区别：word-wrap会首先尝试第二行是否有足够空间，而word-break会直接在当前行断行。所以如果想节省空间，直接word-break:break-all;
 ```
 
