@@ -114,3 +114,7 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
   9.4 white-space: 如何处置元素内的空格，默认normal：会合并空格，并作为行内断行的标识。nowrap，则合并空格但不作为行内断行的标识；pre，不合并空格也不作为行内断行的标识。
 ```
 
+#### js运算符优先级
+
+单目、双目、三目、赋值、逗号
+
