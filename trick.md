@@ -110,5 +110,7 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
   9.2 word-wrap(overflow-wrap):块内换行，默认normal，Lines may only break at normal word break points (such as a space between two words).
   
   9.3 区别：word-wrap会首先尝试第二行是否有足够空间，而word-break会直接在当前行断行。所以如果想节省空间，直接word-break:break-all;
+  
+  9.4 white-space: 如何处置元素内的空格，默认normal：会合并空格，并作为行内断行的标识。nowrap，则合并空格但不作为行内断行的标识；pre，不合并空格也不作为行内断行的标识。
 ```
 
