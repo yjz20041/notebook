@@ -160,7 +160,12 @@ Reflect.ownKeys返回一个数组，包含对象自身的所有键名，不管�
 
 14.Object.keys,values,entries都不包括继承和symbol属性
 
-15.
+15. ...destruction：{a, ..b} = {a:1,c:2,d:3} =>  a = 1; b = {c:2, d:3}
+
+16. ...扩展运算符：var o = {a:1,b:2} var o2 = {...o} => o2 = {a:1,b:2}等同于let o2 = Object.assign({}, o);扩展运算符也可以用于合并
+var o = {...a,...b}.扩展运算符的参数对象之中，如果有取值函数get，这个函数是会执行的。
+
+17.（提案）null运算符a?.b?.c如果有属性为undefined或者null，则返回undefined
 ```
 
 #### 3.class
