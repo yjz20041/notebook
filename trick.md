@@ -93,10 +93,18 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 8.1 \n新一行，\r返回。打字机时代的产物
 \f: 换页符，\t:tab,\v：垂直制表符，就是换行后紧跟前一列。
 
-8.2 \xa0, &nbsp;
+8.2 \xa0或者\u00a0, &nbsp;
 
-8.3 0x20：空格
+8.3 0x20 \x20 \u2000：空格,中文空格为\u3000
 
 8.4： nbsp 是 Non-Breaking SPace的缩写，即“不被折断的空格”，当两个单词使用 &nbsp; 连接时，这两个单词就不会被分隔为2行
+
+8.5 trim支持IE9+，polyfill String.replace(/^[\s\ufeff\xa0\u3000]+|[\s\ufeff\xa0\u3000]+$/g, '')
+```
+
+#### 9.word-break word-wrap
+
+```css
+
 ```
 
