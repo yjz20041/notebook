@@ -1,6 +1,6 @@
 # es6
 
-#### generator
+#### 1.generator
 
 #### introduction： generator实现分为runtime执行环境和执行函数。执行函数由babeljs编译generator函数得到，原理是将其中的yield语句转为switch语句，test条件为runtime中的执行位置loc。loc通过yield作为分水岭，由runtime中的context.prev和context.next标识。
 
@@ -75,3 +75,28 @@ aync 函数会被转化为gennerator，await后的语句会被放进promise里
   
 
 ```
+
+#### 2.Object扩展
+
+```js
+  1.简写属性值{a} => {a:a}
+  2.简写方法 {a(){}}
+  3.setter and getter,ie9+支持：e.g
+  
+  {
+    set a (val) {this._a = val}
+    get a() {return this._a}
+  }
+  
+  4.Object.defineProperty: 可以控制对象属性的默认操作，如是否可遍历、删除、get、set etc. e.g， ie9+,ie8只支持给dom对象添加属性，给plain object添加属性会报错，并且有几个注意点：
+  Property attributes must be set to some values. The configurable, enumerable and writable attributes should all be set to true for data descriptor and true for configurable, false for enumerable for accessor descriptor.(?) Any attempt to provide other value(?) will result in an error being thrown.
+Reconfiguring a property requires first deleting the property. If the property isn't deleted, it stays as it was before the reconfiguration attempt
+
+  Object.defineProperty(o, 'a', {
+    configurable: false//是否
+  })
+```
+
+#### 3.class
+
+
