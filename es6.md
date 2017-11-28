@@ -107,6 +107,21 @@ Reconfiguring a property requires first deleting the property. If the property i
     get () {return this._a}
     
   })
+  
+  5.变量key:{[key]: 123}
+  
+  6.Object.is:
+  es5 只有 ==和===， 不足：==会转化两边的变量类型，而且NaN!=NaN, 且+0 === -0。
+  Object.is跟===基本一致，但是Object.is(NaN,NaN)为true，Object.is(0, -0)为false
+  
+  7.Object.assign:合并
+    1.第1个参数会转化为对象，如果是null和undefined则会报错
+    2.如果只有一个参数，则直接返回该参数,如果该参数非对象，则转成对象返回
+    3.数组：{0: "a", 1: "b", 2: "c", length: 3, [[PrimitiveValue]]: "abc"}
+    4.布尔值、数值、字符串分别转成对应的包装对象，可以看到它们的原始值都在包装对象的内部属性[[PrimitiveValue]]上面，这个属性是不会被      Object.assign拷贝的。只有字符串的包装对象，会产生可枚举的实义属性，那些属性则会被拷贝。
+    5.只拷贝源对象的自身属性（不拷贝继承属性），也不拷贝不可枚举的属性（enumerable: false）
+  
+  8.Object.getOwnPropertyDescriptor:获取属性
 ```
 
 #### 3.class
