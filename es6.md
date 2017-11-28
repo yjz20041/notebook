@@ -78,7 +78,7 @@ aync 函数会被转化为gennerator，await后的语句会被放进promise里
 
 #### 2.Object扩展
 
-```js
+```
   1.简写属性值{a} => {a:a}
   2.简写方法 {a(){}}
   3.setter and getter,ie9+支持：e.g
@@ -93,7 +93,19 @@ aync 函数会被转化为gennerator，await后的语句会被放进promise里
 Reconfiguring a property requires first deleting the property. If the property isn't deleted, it stays as it was before the reconfiguration attempt
 
   Object.defineProperty(o, 'a', {
-    configurable: false//是否
+    configurable: false//是否允许重新配置 data descriptor或者accessor descriptor，是否允许删除
+    enumerable: false// 是否允许枚举
+    
+    //下面两组2者选1,不可并存
+    
+    //data descriptor
+    writable: false//是否可写，
+    value: 123//默认值
+    
+    //accessor descriptor
+    set (value) { this._a = value}
+    get () {return this._a}
+    
   })
 ```
 
