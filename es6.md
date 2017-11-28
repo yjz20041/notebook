@@ -121,7 +121,38 @@ Reconfiguring a property requires first deleting the property. If the property i
     4.布尔值、数值、字符串分别转成对应的包装对象，可以看到它们的原始值都在包装对象的内部属性[[PrimitiveValue]]上面，这个属性是不会被      Object.assign拷贝的。只有字符串的包装对象，会产生可枚举的实义属性，那些属性则会被拷贝。
     5.只拷贝源对象的自身属性（不拷贝继承属性），也不拷贝不可枚举的属性（enumerable: false）
   
-  8.Object.getOwnPropertyDescriptor:获取属性
+  8.Object.getOwnPropertyDescriptor:获取属性的描述对象
+  
+  9.enumerable:false对 Object.keys, for in, Object.assign,JSON.stringify，其中for in 会遍历继承属性，而其他的不会
+  
+  10.
+  （1）for...in
+
+for...in循环遍历对象自身的和继承的可枚举属性（不含 Symbol 属性）。
+
+（2）Object.keys(obj)
+
+Object.keys返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。
+
+（3）Object.getOwnPropertyNames(obj)
+
+Object.getOwnPropertyNames返回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名。
+
+（4）Object.getOwnPropertySymbols(obj)
+
+Object.getOwnPropertySymbols返回一个数组，包含对象自身的所有 Symbol 属性的键名。
+
+（5）Reflect.ownKeys(obj)
+
+Reflect.ownKeys返回一个数组，包含对象自身的所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。
+
+以上的 5 种方法遍历对象的键名，都遵守同样的属性遍历的次序规则。
+
+首先遍历所有数值键，按照数值升序排列。
+其次遍历所有字符串键，按照加入时间升序排列。
+最后遍历所有 Symbol 键，按照加入时间升序排列
+
+11.
 ```
 
 #### 3.class
