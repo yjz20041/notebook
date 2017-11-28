@@ -102,9 +102,11 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 8.5 trim支持IE9+，polyfill String.replace(/^[\s\ufeff\xa0\u3000]+|[\s\ufeff\xa0\u3000]+$/g, '')
 ```
 
-#### 9.word-break word-wrap
+#### 9.word-break word-wrap white-space区别
 
 ```css
-
+  9.1 word-break:单词内换行，默认normal，非CJK只在单词链接处(空格)换行
+  
+  9.2 word-wrap(overflow-wrap):
 ```
 
