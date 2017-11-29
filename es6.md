@@ -180,5 +180,9 @@ var o = {...a,...b}.扩展运算符的参数对象之中，如果有取值函数
 6.私有方法和属性（提案）：#a #a (){},babeljs未实现,私有方法和属性可以通过new symbole作为key值来进行对外屏蔽
 
 7.继承:
+1. 如果子类有constructor，则必须调用super()函数，而且this必须得在它之后
+2. 其他方法的super指向subClass.prototype.__proto__
+3. superClass的静态方法通过subClass.__proto__ = superClass继承，由于IE11-不支持__proto__，所以无法继承静态方法
+4. super,super在父级没有同名方法的时候，会通过__proto__层层向上寻找ancestors的同名方法，由于IE11-不支持__proto__，所以使用的时候会报错
 
 ```
