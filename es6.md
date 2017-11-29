@@ -172,6 +172,8 @@ var o = {...a,...b}.扩展运算符的参数对象之中，如果有取值函数
 
 ```js
 
+normal mode:符合ES6标准
+
 1. constructor: 构造函数，编译后为ES5里的函数构造函数。如果返回为对象，则new 的结果为该对象
 2. 普通方法：通过defineProperties定义在constructor.prototype，默认 configurable: true, enemerabe: false, writable: true
 3. 静态方法： 通过defineProperties定义在constructor上
@@ -182,7 +184,9 @@ var o = {...a,...b}.扩展运算符的参数对象之中，如果有取值函数
 7.继承:
 1. 如果子类有constructor，则必须调用super()函数，而且this必须得在它之后
 2. 其他方法的super指向subClass.prototype.__proto__
-3. superClass的静态方法通过subClass.__proto__ = superClass继承，由于IE11-不支持__proto__，所以无法继承静态方法
-4. super,super在父级没有同名方法的时候，会通过__proto__层层向上寻找ancestors的同名方法，由于IE11-不支持__proto__，所以使用的时候会报错
-
+3. superClass的静态方法通过subClass.__proto__ = superClass继承，由于IE11-不支持设置__proto__（setPrototypeOf），所以无法继承静态方法
+4. super.key,
+  4.1首先通过getOwnPropertyDescriptor(key)寻找到descriptor，如果存在value或者getter，则返回对应的值，这里IE8由于不支持getter，所以会无效。
+  4.2如果没有找到descriptor，会通过getPrototypeOf层层向上寻找ancestors的同名方法，由于IE9-不支持getPrototypeOf方法，所以使用的时候会报错.
+  4.3用super的时候，ie浏览器需要IE9+最为保险。ie8下使用的时候，不要用setter和getter，父类一定要有对应的方法，否则会在不支持getPrototypeOf方法处    报错。
 ```
