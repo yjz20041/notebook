@@ -170,4 +170,15 @@ var o = {...a,...b}.扩展运算符的参数对象之中，如果有取值函数
 
 #### 3.class
 
+```js
 
+1. constructor: 构造函数，编译后为ES5里的函数构造函数。如果返回为对象，则new 的结果为该对象
+2. 普通方法：通过defineProperties定义在constructor.prototype，默认 configurable: true, enemerabe: false, writable: true
+3. 静态方法： 通过defineProperties定义在constructor上
+4. 静态属性： static a = 1，通过constrctor.a = 1实现
+5. 实例属性简写：a = 1，会被转移到 constructor内部变为this.a = 1
+6.私有方法和属性（提案）：#a #a (){},babeljs未实现,私有方法和属性可以通过new symbole作为key值来进行对外屏蔽
+
+7.继承:
+
+```
