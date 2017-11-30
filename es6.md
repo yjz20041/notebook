@@ -190,6 +190,8 @@ normal mode:符合ES6标准，兼容性稍差IE9+（通过defineProperty设置�
   4.2如果没有找到descriptor，会通过getPrototypeOf层层向上寻找ancestors的同名方法，由于IE8不支持getPrototypeOf方法，所以使用的时候会报错.
   4.3用super的时候，ie浏览器需要IE9+最为保险。ie8下使用的时候，不要用setter和getter(defineProperty的polyfill无法实现setter和getter)，父类必须要有对应的方法以避免使用getPrototypeOf。
  
- loose mode:兼容性更强,支持IE8+（setPrototypeOf（静态属性和方法通过subClass.__proto__实现继承，因此无法继承）,setter和getter也无法用，因为setter和getter无法通过defineProperty polyfill），更符合ES5标准（通过f.prototype设置属性）
+ loose mode:兼容性更强（没有babel-polyfill的情况下），更符合ES5标准（通过f.prototype设置属性）,静态属性和方法通过subClass.__proto__实现继承，因此无法继承,setter和getter也无法用，因为setter和getter无法通过defineProperty polyfill。
+ 
+兼容性问题总结：不管是loose mode还是normal mode， ie9-下都无法使用setter和getter为class定义属性，原因是defineProperty无法polyfill setter 和getter；IE11-下静态属性和方法都无法通过__proto__继承，但是可以用protoToAssign插件通过赋值模拟继承。
  
 ```
