@@ -172,7 +172,7 @@ var o = {...a,...b}.扩展运算符的参数对象之中，如果有取值函数
 
 ```js
 
-normal mode:符合ES6标准
+normal mode:符合ES6标准，兼容性稍差IE9+（通过defineProperty设置属性）
 
 1. constructor: 构造函数，编译后为ES5里的函数构造函数。如果返回为对象，则new 的结果为该对象
 2. 普通方法：通过defineProperties定义在constructor.prototype，默认 configurable: true, enemerabe: false, writable: true
@@ -187,6 +187,9 @@ normal mode:符合ES6标准
 3. superClass的静态方法通过subClass.__proto__ = superClass继承，由于IE11-不支持设置__proto__（setPrototypeOf），所以无法继承静态方法
 4. super.key,
   4.1首先通过getOwnPropertyDescriptor(key)寻找到descriptor，如果存在value或者getter，则返回对应的值，这里IE8由于不支持getter，所以会无效。
-  4.2如果没有找到descriptor，会通过getPrototypeOf层层向上寻找ancestors的同名方法，由于IE9-不支持getPrototypeOf方法，所以使用的时候会报错.
-  4.3用super的时候，ie浏览器需要IE9+最为保险。ie8下使用的时候，不要用setter和getter，父类一定要有对应的方法，否则会在不支持getPrototypeOf方法处    报错。
+  4.2如果没有找到descriptor，会通过getPrototypeOf层层向上寻找ancestors的同名方法，由于IE8不支持getPrototypeOf方法，所以使用的时候会报错.
+  4.3用super的时候，ie浏览器需要IE9+最为保险。ie8下使用的时候，不要用setter和getter(defineProperty的polyfill无法实现setter和getter)，父类必须要有对应的方法以避免使用getPrototypeOf。
+ 
+ loose mode:兼容性更强,支持IE8+（setPrototypeOf（静态属性和方法通过subClass.__proto__实现继承，因此无法继承）,setter和getter也无法用，因为setter和getter无法通过defineProperty polyfill），更符合ES5标准（通过f.prototype设置属性）
+ 
 ```
