@@ -1,6 +1,8 @@
 # babeljs
 
-#### 1.兼容性
+#### 1.babel-polyfill 6.26在ie8下无法运行，因为delegate.iterator.return中return是关键字在IE8下，需要修改为delegate.iterator['return']
+
+#### 2.兼容性
 
 ```js
   1. 如果运行环境低于es5，则需要引入babel-polyfill
