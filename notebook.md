@@ -67,3 +67,9 @@ int uv_run(uv_loop_t *loop, uv_run_mode mode) {
 	return r;
 }
 ```
+
+#### 3.什么是plain object
+
+```js
+	{}或者new f()生成的对象，i.e：__proto__指向Object.prototype或者f.prototype.__proto__指向Object.prototype生成的对象
+```
