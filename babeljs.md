@@ -23,6 +23,10 @@
 
 transform options:
 
+.babelrc: {preset: ['env']}
+var bable = require('babel-core');
+bable.transformFile('test.js', options, callback);
+
 Ast:返回ast，默认true
 AuxiliaryCommentAfter: 在非用户注入的代码之后添加comment, null
 auxiliaryCommentBefore:在非用户注入的代码之前添加comment, null
@@ -56,4 +60,10 @@ sourceMapTarget： sourcemap目标文件
 sourceRoot： 根路径
 sourceType：complied file type, module or script , default module
 wrapPluginVisitorMethod: An optional callback that can be used to wrap visitor methods
+```
+
+#### 4.原理
+```js
+
+
 ```
