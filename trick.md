@@ -124,3 +124,11 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 
 #### 13.line-height: 2em 和2的区别：2em会事先计算好，而2会动态计算。
 
+#### 14. 伪类和伪元素
+```
+伪类是一个真实 HTML 元素上的一个特殊的状态。可以认为是浏览器在特定条件下将一个虚拟的类自动应用于某个元素。
+
+伪元素是 HTML 文档的一部分，尽管它不是真实的 HTML 元素，但是 CSS 允许你为它设置样式。就像是虚拟的 HTML 元素——尽管它没有真实的 HTML 标签，但你仍可以为其添加样式。
+
+```
+
