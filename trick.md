@@ -122,3 +122,5 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 
 #### 12.void 0，void执行后面参数，但永远返回undefined。因为undefined不是保留字，有可能会被重写，所以用void 0 可以永远返回undeinfed
 
+#### 13.line-height: 2em 和2的区别：2em会事先计算好，而2会动态计算。
+
