@@ -99,7 +99,7 @@ Object的__proto__指向Function.prototype, 所以Object instanceof Function
 
 8.4： nbsp 是 Non-Breaking SPace的缩写，即“不被折断的空格”，当两个单词使用 &nbsp; 连接时，这两个单词就不会被分隔为2行
 
-8.5 trim支持IE9+，polyfill String.replace(/^[\s\ufeff\xa0\u3000]+|[\s\ufeff\xa0\u3000]+$/g, '')
+8.5 trim支持IE9+，polyfill String.replace(/^[\s\ufeff\xa0\u3000]+|[\s\ufeff\xa0\u3000]+$/g, ''),feff为字节顺序码
 ```
 
 #### 9.word-break word-wrap white-space区别
