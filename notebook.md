@@ -73,3 +73,8 @@ int uv_run(uv_loop_t *loop, uv_run_mode mode) {
 ```js
 	{}或者new f()生成的对象，i.e：__proto__指向Object.prototype或者f.prototype.__proto__指向Object.prototype生成的对象
 ```
+
+#### 4. innerText和textContent区别
+```js
+	innerText会结合css样式，比如不会显示display为none的元素的文本，textContent会显示script、css的文本并且不会结合css，所以也不会造成浏览器reflow
+```
